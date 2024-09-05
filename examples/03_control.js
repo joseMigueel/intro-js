@@ -1,6 +1,6 @@
 console.log('03');
 const firstProductName = 'T-shirt';
-const firstProductPrice = 35;
+const firstProductPrice = 40;
 const firstProductQuantity = 2;
 
 const secondProductName = 'Cap';
@@ -29,3 +29,24 @@ if (sameNames && samePrices) {
 message2 = (sameNames && samePrices) ? 'Son mismo producto' : 'Son diferentes productos';
 
 console.log(message2);
+const day = '';
+// switch case
+switch (day) {
+  case 'Monday':
+    console.log('Hay clase es Lunes');
+    break;
+  case 'Tuesday':
+    console.log('Hay clase es Martes');
+    break;
+  default:
+    console.log('No hay clase');
+    break;
+}
+
+if (day === 'Monday') {
+  console.log('Hay clase es Lunes');
+} else if (day === 'Tuesday') {
+  console.log('Hay clase es Martes');
+} else {
+  console.log('No hay clase');
+}
