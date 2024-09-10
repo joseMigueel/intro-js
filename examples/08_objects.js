@@ -82,4 +82,47 @@ const firstShow = shows[0];
 const nameFirstShow = firstShow.name;
 console.log(nameFirstShow);
 
+let info = '';
+for (let show of shows) {
+  if (show.name !== 'Under the dome') {
+    info = info + `
+      <h2>Show: ${show.name}</h2>
+      <p>Genres: ${show.genres.join(' | ')}</p>
+    `;
+  }
+}
+// mostrar por pantalla
+document.write(info);
+
+console.log(Object.values(firstProduct));
+console.log(Object.entries(firstProduct));
+// Problema con objects
+const user = {
+  email: 'test@test.com',
+  address: {
+    street: 'test',
+    number: 12,
+  },
+};
+// structuredClone
+// ...
+// JSON.parse(JSON.stringify)
+// const user2 = JSON.parse(JSON.stringify(user));
+const user2 = structuredClone(user);
+/*
+const user2 = {
+  ...user,
+  address: {
+    ...user.address,
+  }
+};
+*/
+user2.email = 'test2@test.com';
+user2.role = 'admin';
+user2.address.street = 'Calle keepcoding';
+user2.address.number = 23;
+
+console.log(user);
+console.log(user2);
+
 
