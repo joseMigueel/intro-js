@@ -109,6 +109,7 @@ const user = {
 // JSON.parse(JSON.stringify)
 // const user2 = JSON.parse(JSON.stringify(user));
 const user2 = structuredClone(user);
+user.testeo = '1234';
 /*
 const user2 = {
   ...user,
@@ -124,5 +125,3 @@ user2.address.number = 23;
 
 console.log(user);
 console.log(user2);
-
-
