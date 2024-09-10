@@ -46,7 +46,7 @@ const processCSV = (csv) => {
     // line 'T-shirt,10,Amazon'
     const [name, price, store] = line.split(','); // ['T-shirt', '10', 'Amazon']
     products.push({
-      name: name,
+      name,
       price: parseInt(price),
       store: store
     });
@@ -56,3 +56,22 @@ const processCSV = (csv) => {
 
 const products = processCSV(csvProducts);
 console.log(products);
+
+const infoGeneral = {
+  bootcamp: 'Keepcoding',
+  name: 'General',
+};
+
+let module1 = {
+  name: 'JS',
+};
+
+module1 = { ...module1, ...infoGeneral };
+console.log(module1);
+
+let module2 = {
+  ...infoGeneral,
+  name: 'HTML'
+};
+console.log(module2);
+
