@@ -1,10 +1,4 @@
 console.log('10');
-const suma = (valor1, valor2) => {
-  const op = valor1 + valor2;
-  return op;
-};
-
-const result = suma(1, 2);
 
 
 // cierres
@@ -78,3 +72,30 @@ shoppingBag2.addProduct(products[2]);
 
 console.log(shoppingBag1.getProducts());
 console.log(shoppingBag2.getProducts());
+
+// suma | resta
+const operations = (num1, num2, operation) => {
+  if (operation === 'resta') {
+    return num1 - num2;
+  } else if (operation === 'suma') {
+    return num1 + num2;
+  }
+};
+
+const suma = (valor1, valor2) => {
+  const op = valor1 + valor2;
+  return op;
+};
+
+const val1 = 2;
+const resta = (num1, num2) => num1 - num2;
+
+operations(1, 2, 'resta');
+operations(1, 2, 'suma');
+
+const operationsV2 = (num1, num2, operationFn) => {
+  return operationFn(num1, num2);
+};
+
+console.log(operationsV2(2, 3, resta));
+operationsV2(2, 3, console.log);
