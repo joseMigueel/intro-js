@@ -79,6 +79,8 @@ const operations = (num1, num2, operation) => {
     return num1 - num2;
   } else if (operation === 'suma') {
     return num1 + num2;
+  } else if (operation === 'log') {
+    console.log(num1, num2);
   }
 };
 
