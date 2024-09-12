@@ -73,6 +73,10 @@ shoppingBag2.addProduct(products[2]);
 console.log(shoppingBag1.getProducts());
 console.log(shoppingBag2.getProducts());
 
+// export
+// export default
+// export
+
 // suma | resta
 const operations = (num1, num2, operation) => {
   if (operation === 'resta') {
