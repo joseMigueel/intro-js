@@ -133,4 +133,16 @@ const cart = () => {
   return { addToCart, getCart, applyDiscount, getDiscounts, removeDiscount, removeProduct, getTotal };
 };
 
+const cart1 = cart()
+
+cart1.addToCart({
+  name: 'tshirt',
+  price: 12,
+  quantity: 1
+})
+cart1.applyDiscount('tshirt', '50');
+const result = cart1.getTotal()
+console.log(result);
+
+
 export default cart;
