@@ -64,9 +64,34 @@ const cart = () => {
    * Applies a discount to a product in the cart.
    * @param {string} productName - The name of the product to apply the discount to.
    * @param {string} discount - The discount percentage to apply.
-   * @throws {Error} If the product is not found in the cart.
+   * @throws {Error} If the product is not found in the product list.
    */
-  const applyDiscount = (productName, discount) => {};
+  const applyDiscount = (productName, discount) => {
+    // buscar el producto
+    const product = products.find(product => product.name === productName);
+    // lanzar error si no lo tenemos
+    if (!product) {
+      throw new Error('No existe ese producto');
+    }
+    // guardar el nuevo descuento con su producto
+    discounts = [...discounts, {
+      discount: parseInt(discount),
+      product,
+    }];
+    // aplicar descuento al producto seleccionado
+    products = products.map((productItem) => {
+      if (productItem.name === product.name) {
+        const discountNumber = parseInt(discount);
+        const priceDiscount = productItem.price * (discountNumber / 100);
+        const price = productItem.price - priceDiscount;
+        return {
+          ...productItem,
+          price,
+        };
+      }
+      return productItem;
+    });
+  };
 
   /**
    * Removes a product from the cart and any discounts associated with it.
@@ -77,13 +102,33 @@ const cart = () => {
       /*if (product.name === productName) return false;
       return true;*/
     );
+    discounts = discounts.filter(discountElement => {
+      return discountElement.product.name !== productName;
+    });
   };
 
   /**
    * Removes a discount applied to a product in the cart.
    * @param {string} productName - The name of the product to remove the discount from.
    */
-  const removeDiscount = (productName) => {};
+  const removeDiscount = (productName) => {
+    debugger
+    const removedDiscount = discounts.find(discountElement => {
+      return discountElement.product.name === productName;
+    });
+    // borrar el discount del array de discounts
+    discounts = discounts.filter(discountElement => discountElement.product.name !== productName);
+    // cambiar el precio del producto que tenia ese descuento
+    products = products.map(product => {
+      if (removedDiscount.product.name === product.name) {
+        return {
+          ...product,
+          price: removedDiscount.product.price,
+        };
+      }
+      return product;
+    });
+  };
 
   return { addToCart, getCart, applyDiscount, getDiscounts, removeDiscount, removeProduct, getTotal };
 };
